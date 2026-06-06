@@ -163,6 +163,62 @@ footer{background:#1a3020;padding:3rem 2rem 2rem;}
   .hero-btns{flex-direction:column;align-items:center;}
   .btn-main,.btn-sub{width:100%;max-width:280px;text-align:center;}
 }
+
+/* レシピセクション */
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Shippori Mincho',serif;background:#faf7f0;color:#2c2416;padding:2rem 1rem;}
+.sec-label{font-size:.68rem;letter-spacing:.3em;color:#6daa78;display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;}
+.sec-label::before{content:'';display:block;width:24px;height:1px;background:#6daa78;}
+.sec-h2{font-size:2rem;color:#2a7a3b;margin-bottom:3rem;}
+
+.recipe-category{margin-bottom:4rem;}
+.cat-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid #d4e8d0;}
+.cat-icon{font-size:2.5rem;}
+.cat-title{font-size:1.4rem;color:#2a7a3b;}
+
+.recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.recipe-card{border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);background:#fff;}
+
+.recipe-illust{height:140px;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.bg-s1{background:linear-gradient(135deg,#e8f5e2,#c8e8bc);}
+.bg-s2{background:linear-gradient(135deg,#e2f0e8,#bce0cc);}
+.bg-s3{background:linear-gradient(135deg,#e5f2df,#c2ddb5);}
+.bg-k1{background:linear-gradient(135deg,#ede8f5,#d4c8e8);}
+.bg-k2{background:linear-gradient(135deg,#f0e8f5,#ddc8e8);}
+.bg-k3{background:linear-gradient(135deg,#eae8f5,#ccc8e8);}
+.bg-p1{background:linear-gradient(135deg,#f5f0e2,#e8d8bc);}
+.bg-p2{background:linear-gradient(135deg,#f5ece2,#e8d0bc);}
+.bg-p3{background:linear-gradient(135deg,#f5f2e2,#e8dcbc);}
+
+.ingredients-box{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;align-items:center;}
+.ing{display:flex;flex-direction:column;align-items:center;gap:.15rem;}
+.ing svg{width:42px;height:42px;}
+.ing-emoji{font-size:2rem;}
+.ing-name{font-size:.6rem;color:#5a4a32;background:rgba(255,255,255,.7);border-radius:4px;padding:.1rem .3rem;}
+.plus{font-size:1.2rem;color:#8a7a62;font-weight:bold;}
+
+.recipe-body{padding:1rem 1.2rem 1.2rem;}
+.recipe-name{font-size:.95rem;color:#2c2416;margin-bottom:.8rem;font-weight:700;border-bottom:1px solid #e8e0d0;padding-bottom:.5rem;}
+
+.recipe-detail{display:flex;flex-direction:column;gap:.8rem;}
+.detail-section h4{font-size:.72rem;letter-spacing:.1em;color:#2a7a3b;margin-bottom:.4rem;display:flex;align-items:center;gap:.3rem;}
+.detail-section h4::before{content:'';display:block;width:3px;height:12px;background:#2a7a3b;border-radius:2px;}
+.material-list{list-style:none;display:flex;flex-direction:column;gap:.2rem;}
+.material-list li{font-size:.75rem;color:#5a4a32;padding-left:.8rem;position:relative;}
+.material-list li::before{content:'・';position:absolute;left:0;color:#6daa78;}
+.steps{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.steps li{font-size:.75rem;color:#5a4a32;display:flex;gap:.5rem;}
+.step-num{min-width:18px;height:18px;background:#2a7a3b;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;flex-shrink:0;margin-top:.1rem;}
+
+/* SVGスタイル */
+.shiitake-svg{display:block;}
+.kikurage-svg{display:block;}
+
+@media(max-width:700px){
+  .recipe-grid{grid-template-columns:1fr;}
+}
+
 </style>
 </head>
 <body>
@@ -170,6 +226,7 @@ footer{background:#1a3020;padding:3rem 2rem 2rem;}
 <!-- モバイルナビ -->
 <div class="mob-nav" id="mobNav">
   <a href="#products" onclick="closeMob()">商品</a>
+  <a href="#recipe" onclick="closeMob()">レシピ</a>
   <a href="#about" onclick="closeMob()">農場について</a>
   <a href="#contact" onclick="closeMob()">お問い合わせ</a>
 </div>
@@ -178,6 +235,7 @@ footer{background:#1a3020;padding:3rem 2rem 2rem;}
   <a href="#" class="nav-logo"><img src="1715296673697.png" alt="GOGOファーム" style="height:44px;display:block;"></a>
   <ul class="nav-links">
     <li><a href="#products">商品</a></li>
+    <li><a href="#recipe">レシピ</a></li>
     <li><a href="#about">農場について</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
   </ul>
@@ -379,6 +437,398 @@ footer{background:#1a3020;padding:3rem 2rem 2rem;}
   </div>
 </div>
 
+
+
+<!-- レシピ -->
+<section class="sec" id="recipe" style="background:var(--ivory);">
+  <div class="sec-inner">
+    
+
+<div class="sec-label">RECIPE</div>
+<h2 class="sec-h2">GOGOファームのレシピ</h2>
+
+<!-- しいたけ -->
+<div class="recipe-category">
+  <div class="cat-header">
+    <div class="cat-icon">🍄</div>
+    <div class="cat-title">しいたけレシピ</div>
+  </div>
+  <div class="recipe-grid">
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-s1">
+        <div class="ingredients-box">
+          <div class="ing">
+            <svg class="shiitake-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="25" cy="18" rx="20" ry="12" fill="#A0522D"/>
+              <ellipse cx="18" cy="14" rx="6" ry="3" fill="#C4743A" opacity="0.5"/>
+              <rect x="20" y="28" width="10" height="14" rx="3" fill="#F5DEB3"/>
+            </svg>
+            <div class="ing-name">しいたけ</div>
+          </div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🧈</div><div class="ing-name">バター</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🫙</div><div class="ing-name">醤油</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">しいたけのバター醤油ソテー</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（2人分）</h4>
+            <ul class="material-list">
+              <li>しいたけ 4枚</li>
+              <li>バター 10g</li>
+              <li>醤油 大さじ1</li>
+              <li>みりん 大さじ1</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>しいたけは軸を取り食べやすい大きさにスライスする</li>
+              <li><span class="step-num">2</span>フライパンにバターを熱し中火で炒める</li>
+              <li><span class="step-num">3</span>醤油・みりんを加えてさっと炒めたら完成</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-s2">
+        <div class="ingredients-box">
+          <div class="ing">
+            <svg class="shiitake-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="25" cy="18" rx="20" ry="12" fill="#A0522D"/>
+              <ellipse cx="18" cy="14" rx="6" ry="3" fill="#C4743A" opacity="0.5"/>
+              <rect x="20" y="28" width="10" height="14" rx="3" fill="#F5DEB3"/>
+            </svg>
+            <div class="ing-name">しいたけ</div>
+          </div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🥩</div><div class="ing-name">豚肉</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🍚</div><div class="ing-name">お米</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">しいたけと豚肉の炊き込みご飯</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（2人分）</h4>
+            <ul class="material-list">
+              <li>しいたけ 3枚</li>
+              <li>豚こま肉 100g</li>
+              <li>お米 2合</li>
+              <li>醤油・酒・みりん 各大さじ2</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>しいたけと豚肉を醤油・酒・みりんで下味をつける</li>
+              <li><span class="step-num">2</span>研いだお米に調味料ごと入れて炊く</li>
+              <li><span class="step-num">3</span>炊き上がったら混ぜて完成</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-s3">
+        <div class="ingredients-box">
+          <div class="ing">
+            <svg class="shiitake-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="25" cy="18" rx="20" ry="12" fill="#A0522D"/>
+              <ellipse cx="18" cy="14" rx="6" ry="3" fill="#C4743A" opacity="0.5"/>
+              <rect x="20" y="28" width="10" height="14" rx="3" fill="#F5DEB3"/>
+            </svg>
+            <div class="ing-name">しいたけ</div>
+          </div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🥩</div><div class="ing-name">合挽き肉</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🧅</div><div class="ing-name">玉ねぎ</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">しいたけの肉詰め</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（2人分）</h4>
+            <ul class="material-list">
+              <li>しいたけ 6枚</li>
+              <li>合挽き肉 150g</li>
+              <li>玉ねぎ 1/4個</li>
+              <li>塩こしょう・醤油 少々</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>玉ねぎをみじん切りにし合挽き肉と混ぜて肉だねを作る</li>
+              <li><span class="step-num">2</span>しいたけの軸を取り肉だねを詰める</li>
+              <li><span class="step-num">3</span>フライパンで蓋をして蒸し焼きにする</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- きくらげ -->
+<div class="recipe-category">
+  <div class="cat-header">
+    <div class="cat-icon">🖤</div>
+    <div class="cat-title">生きくらげレシピ</div>
+  </div>
+  <div class="recipe-grid">
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-k1">
+        <div class="ingredients-box">
+          <div class="ing">
+            <svg class="kikurage-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,30 Q15,15 25,20 Q35,25 40,15 Q42,28 35,35 Q25,42 15,38 Q8,35 10,30Z" fill="#3a2a1a"/>
+              <path d="M14,28 Q18,18 25,22 Q32,26 38,18 Q39,27 33,33 Q25,39 17,36 Q12,33 14,28Z" fill="#5a3a28" opacity="0.7"/>
+              <ellipse cx="22" cy="23" rx="5" ry="3" fill="#7a5a3a" opacity="0.5" transform="rotate(-20,22,23)"/>
+            </svg>
+            <div class="ing-name">生きくらげ</div>
+          </div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🧄</div><div class="ing-name">にんにく</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🫙</div><div class="ing-name">ごま油</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">生きくらげのにんにく炒め</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（2人分）</h4>
+            <ul class="material-list">
+              <li>生きくらげ 100g</li>
+              <li>にんにく 1片</li>
+              <li>ごま油 大さじ1</li>
+              <li>塩こしょう 少々</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>生きくらげは食べやすい大きさに切る</li>
+              <li><span class="step-num">2</span>ごま油でにんにくを炒め香りを出す</li>
+              <li><span class="step-num">3</span>きくらげを加えて塩こしょうで味付けして完成</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-k2">
+        <div class="ingredients-box">
+          <div class="ing">
+            <svg class="kikurage-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,30 Q15,15 25,20 Q35,25 40,15 Q42,28 35,35 Q25,42 15,38 Q8,35 10,30Z" fill="#3a2a1a"/>
+              <path d="M14,28 Q18,18 25,22 Q32,26 38,18 Q39,27 33,33 Q25,39 17,36 Q12,33 14,28Z" fill="#5a3a28" opacity="0.7"/>
+              <ellipse cx="22" cy="23" rx="5" ry="3" fill="#7a5a3a" opacity="0.5" transform="rotate(-20,22,23)"/>
+            </svg>
+            <div class="ing-name">生きくらげ</div>
+          </div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🥒</div><div class="ing-name">きゅうり</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🫙</div><div class="ing-name">ポン酢</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">生きくらげの和風サラダ</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（2人分）</h4>
+            <ul class="material-list">
+              <li>生きくらげ 80g</li>
+              <li>きゅうり 1本</li>
+              <li>ポン酢 大さじ2</li>
+              <li>ごま・刻みネギ 少々</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>生きくらげを軽く茹でて水気を切る</li>
+              <li><span class="step-num">2</span>きゅうりは薄切りにする</li>
+              <li><span class="step-num">3</span>ポン酢・ごま・ネギで和えて完成</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-k3">
+        <div class="ingredients-box">
+          <div class="ing">
+            <svg class="kikurage-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,30 Q15,15 25,20 Q35,25 40,15 Q42,28 35,35 Q25,42 15,38 Q8,35 10,30Z" fill="#3a2a1a"/>
+              <path d="M14,28 Q18,18 25,22 Q32,26 38,18 Q39,27 33,33 Q25,39 17,36 Q12,33 14,28Z" fill="#5a3a28" opacity="0.7"/>
+              <ellipse cx="22" cy="23" rx="5" ry="3" fill="#7a5a3a" opacity="0.5" transform="rotate(-20,22,23)"/>
+            </svg>
+            <div class="ing-name">生きくらげ</div>
+          </div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🍅</div><div class="ing-name">トマト</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🥚</div><div class="ing-name">卵</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">生きくらげとトマトの卵炒め</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（2人分）</h4>
+            <ul class="material-list">
+              <li>生きくらげ 80g</li>
+              <li>トマト 1個</li>
+              <li>卵 2個</li>
+              <li>中華スープの素・ごま油 少々</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>きくらげと一口大に切ったトマトを用意する</li>
+              <li><span class="step-num">2</span>ごま油で炒めて溶き卵を加える</li>
+              <li><span class="step-num">3</span>中華スープの素で味付けして完成</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- パウダー -->
+<div class="recipe-category">
+  <div class="cat-header">
+    <div class="cat-icon">🌿</div>
+    <div class="cat-title">しいたけパウダーレシピ</div>
+  </div>
+  <div class="recipe-grid">
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-p1">
+        <div class="ingredients-box">
+          <div class="ing"><div class="ing-emoji">🟤</div><div class="ing-name">パウダー</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🍦</div><div class="ing-name">バニラアイス</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">しいたけパウダーのアイスがけ</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（1人分）</h4>
+            <ul class="material-list">
+              <li>しいたけパウダー 小さじ1</li>
+              <li>バニラアイス 1個</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>バニラアイスを器に盛る</li>
+              <li><span class="step-num">2</span>しいたけパウダーを小さじ1かける</li>
+              <li><span class="step-num">3</span>混ぜながら食べるとほんのり香ばしい大人の味に</li>
+            </ol>
+            <p style="font-size:.72rem;color:#6daa78;margin-top:.6rem;">💡 ヨーグルトにかけても美味しくいただけます！</p>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-p2">
+        <div class="ingredients-box">
+          <div class="ing"><div class="ing-emoji">🟤</div><div class="ing-name">パウダー</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🥩</div><div class="ing-name">合挽き肉</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🧅</div><div class="ing-name">玉ねぎ</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">しいたけパウダー入りハンバーグ</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（2人分）</h4>
+            <ul class="material-list">
+              <li>しいたけパウダー 小さじ2</li>
+              <li>合挽き肉 200g</li>
+              <li>玉ねぎ 1/2個</li>
+              <li>塩こしょう・卵 少々</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>玉ねぎをみじん切りにして炒める</li>
+              <li><span class="step-num">2</span>合挽き肉にパウダー・玉ねぎ・卵を混ぜる</li>
+              <li><span class="step-num">3</span>成形してフライパンで焼いたら完成</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div class="recipe-illust bg-p3">
+        <div class="ingredients-box">
+          <div class="ing"><div class="ing-emoji">🟤</div><div class="ing-name">パウダー</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🫒</div><div class="ing-name">オリーブ油</div></div>
+          <div class="plus">＋</div>
+          <div class="ing"><div class="ing-emoji">🫙</div><div class="ing-name">醤油・酢</div></div>
+        </div>
+      </div>
+      <div class="recipe-body">
+        <div class="recipe-name">しいたけパウダーのドレッシング</div>
+        <div class="recipe-detail">
+          <div class="detail-section">
+            <h4>材料（作りやすい分量）</h4>
+            <ul class="material-list">
+              <li>しいたけパウダー 小さじ1</li>
+              <li>オリーブオイル 大さじ2</li>
+              <li>酢 大さじ1</li>
+              <li>醤油 大さじ1</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h4>作り方</h4>
+            <ol class="steps">
+              <li><span class="step-num">1</span>全ての材料を瓶に入れる</li>
+              <li><span class="step-num">2</span>よく振って混ぜたら完成</li>
+              <li><span class="step-num">3</span>サラダにかけてお召し上がりください</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  </div>
+</section>
 
 <!-- アクセス -->
 <section class="sec" id="access">
